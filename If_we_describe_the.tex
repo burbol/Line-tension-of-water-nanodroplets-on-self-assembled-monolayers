@@ -1,0 +1,77 @@
+If we describe the drop as a spherical cap with radius $R_{C}$ and
+base radius $r_{b}$ (see Figure \ref{fig:Spherical-cap.}) we can
+express the length of its contact line as $L=2\pi r_{b}$, and the
+interfacial areas as $A_{LG}=2\pi R_{C}(1-\cos\theta)$ and $A_{SL}=\pi r_{b}^{2}$.
+Then, substituting into equation \ref{eq:deriv_free_energy} and minimizing
+$G$ with respect to $\theta$ we obtain the Modified Young equation:
+
+\begin{equation}
+\cos\theta=\cos\theta_{\infty}-\frac{\tau}{\gamma_{LG}}\frac{1}{r_{b}},\label{eq: young-eq-mod}
+\end{equation}
+where $\theta_{\infty}$ indicates the macroscopic or apparent contact
+angle defined as
+
+\begin{equation}
+\cos\theta_{\infty}\coloneqq\cos\theta(r_{b}\rightarrow\infty).\label{eq:def_apparent_c_angle}
+\end{equation}
+This angle $\theta_{\infty}$ is often introduced in experimental
+setups where it is difficult or impossible to zoom in to the contact
+line itself.
+
+In the following, we will suppress the word ``microscopic'' and
+simply use the term ``contact angle'' (instead of ``microscopic
+contact angle'') for the angle $\theta$ defined in equations \ref{eq:horizontal-surf_tens}
+and \ref{eq:cos_condition}. If we refer to the macroscopic contact
+angle $\theta_{\infty}$ we will explicitly indicate it.
+
+\subsection{Gibbs dividing surface}
+
+On the macroscopic scale we can easily imagine the SL-interface between
+a water drop and a solid surface (like a ...) as a surface infinitely
+thin (with zero thickness) and place its position. But on the molecular
+level this becomes a complicated task. We should give then some thickness
+to the interface, at least the diameter of the molecules that form
+the interface or, even maybe a few molecular layers. For its position
+different approaches are taken. But all of them are based on Gibbs
+definition, the Gibbs dividing surface (GDS). the position, for example,
+of the SL-interface between a
+
+common definition of the interface position is the Gibbs dividing
+surface (GDS) The definition of the Gibbs dividing surface (GDS) is
+commonly used to determine the position of the interfaces.
+
+We have no reasonable means to determine where the liquid ends or
+the solid starts we require an assumption or a convention but we dont
+know how thick the interface is (beaker of water??)
+
+A common definition of the interface position is the Gibbs dividing
+surface (GDS).
+
+Consider the interface between a water drop and a solid surface. On
+the macroscopic scale each phase seems delimited by a clear line.
+But the liquid molecules are moving constantly producing different
+conformations. It is through their average density that we can establish
+a position for the interface. A common convention used, specially
+for liquid phases, is Gibbs mathematical definition of the dividing
+interface (GDS) \cite{gibbs:1948}, which gives the interface a zero
+thickness and is also defined for the general case of two or more
+components like, for example, two different liquids partially mixed.
+Gibbs defined the interface between two bulk phases $i$ and $j$
+with bulk densities $\rho_{i}^{b}$ and $\rho_{j}^{b}$ as an infinitely
+thin surface (with zero thickness) whose position depends on the concentration
+of each phase and their adsorption. In our simulations the phases
+do not mix. We can hence consider only one phase in the GDS definition
+and, using the graph in Figure~\ref{fig:GDS-def}, simplify the definition
+of its position $z_{GDS}$ to the condition that both areas must be
+equal: $A=B$. It follows then that
+
+\begin{equation}
+A=\intop_{-\infty}^{z_{GDS}}\rho(z)dz=\intop_{z_{GDS}}^{\infty}(\rho^{b}-\rho(z))dz=B.
+\end{equation}
+Then, taking into account that the bulk region has a finite size $L^{bulk}$
+the equation can be simplified to
+
+\begin{equation}
+z_{GDS}=L^{bulk}-\intop_{0}^{L^{bulk}}\frac{\rho(z)}{\rho^{b}}dz.\label{eq:GDS-final}
+\end{equation}
+A more detailed description of the GDS can be found in Refs. \cite{gumma:2003,levitas:2014,lang:2012}

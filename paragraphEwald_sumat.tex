@@ -1,0 +1,61 @@
+\paragraph{Ewald sumation}
+
+Despite its advantages, the shifted potential can modify the Coulomb
+potential considerably. These modifications are difficult to determine
+and to correct. Thus, the Ewald summation method can be used to add
+the \textquotedblleft missing\textquotedblright{} contribution from
+the long-range potential (beyond the cut-off radius). In this method,
+the electrostatic potential is split into two parts: a short range
+contribution from particle-particle interactions and a long-range
+contribution that is solved on a grid using the computational algorithm
+FFT (Fast Fourier Transform).
+
+\subsubsection{Bonded interactions}
+
+Our systems are composed of liquid water (with constantly moving molecules)
+and rigid surfaces with non-moving atoms. Independently of the type
+of bonds in the surfaces (which are covalent bonds) their contribution
+to the potential energy must vanish, because it depends on the instantaneous
+change in position of the atoms caused by the vibration or torsion
+of the bonds. Since our atoms are fixed, we can neglect this term
+for the surface atoms.
+
+Our water model (the SPC/E model explained in the next section) yields
+a similar result for the water molecules: although they are free to
+move, the length and the angle of the bonds are fixed. This is accomplished
+by the use of restraints in the equation of motion, which reduces
+computational time and still delivers good approximate values of the
+characteristic traits of liquid water (like density or radial distribution).
+
+\subsection{\label{sub:SPCE}SPC/E water model}
+
+The structure of liquid water is complicated to model, because the
+hydrogen bonds in each molecule are influenced by the surrounding
+ones yielding complex geometries, vibrations and molecular orbitals.
+
+There are different water models developed for computer simulations.
+Each of them focuses on a specific aspect of the real system \cite{berendsen:1987}.
+Each one has it strengths and there is no perfect model. The extended
+single point charge (SPC/E) model is particularly suited for our study
+because it adds a correction term in the energy from the induced polarization
+of the water molecules. This improves the interaction between different
+phases. It was developed as part of the GROMOS force field to improve
+various water characteristics of the older SPC model \cite{berendsen:1981}:
+the density, the radial distribution and the diffusion constant. Both
+models use the same geometry for the water molecule: a three point
+charge (one on each atom), one LJ-interaction site inside the oxygen
+atom, an O-H bond length of 1nm and a H-O-H bond angle of 109,45\textdegree .
+
+In its creation the SPC/E model was fitted for liquid water (using
+constraints instead of hydrogen bonds) delivering good results for
+the water density, radial distribution, and ... {[}check!{]} {[}ref{]}.
+Since then (in 1981??--> check year!) it has been tested (used) in
+countless simulations.
+
+SPC/E description: The SPC/E model was developed as part of the GROMOS
+force field. It improved the SPC model in the density, the radial
+distribution and the diffusion constant.
+
+Potential Energy: The potential energy affecting each water molecule
+is composed by three terms: Coulomb interactions between partial charges,
+oxygen-oxygen LJ interactions and the polarization correction.

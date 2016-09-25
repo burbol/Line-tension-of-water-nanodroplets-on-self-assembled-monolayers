@@ -1,0 +1,15 @@
+The condition for equilibration is that the shift of the contact
+angle $\delta\theta(\varDelta t_{j,N})$ is smaller than its standard
+deviation $\sigma(\theta(\Delta t_{j,N})$) (Figure \ref{fig:equil_c_angle})
+inside an interval $\varDelta t_{j,N}$ at the end of the simulation,
+where $\Delta t_{j,N}=\left[t_{N}-t_{j}\right]$ with $t_{N}$ the
+last point of the simulation and $t_{j}$ a point after the first
+10 ns (the region where the simulation is clearly still equilibrating).
+A minimum size of 5 ns is set for the intervals $\Delta t_{j,N}$,
+which yields 10 ns < $t_{j}$ < $t_{N}-5$ ns (Appendix \ref{chap:Apdx-theta_t}
+and \ref{chap:Apdx-rbase_t} show the complete time evolution of $\theta$and
+$r_{b}$ for all the simulations performed). This condition is usually
+met for various intervals $\varDelta t_{j,N}$. The longest one is
+considered the ``equilibrated interval'' $t_{equil}$. We define
+the mean value of $\theta(t_{i})$inside this interval as the contact
+angle of the whole simulation: $\left\langle \theta\right\rangle _{equil}\coloneqq\theta$.

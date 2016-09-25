@@ -1,0 +1,42 @@
+\subsection{Simulation configuration}
+
+We simulated sixty systems consisting of ten water droplets with molecule
+numbers $n_{w}$ between $10^{3}$ and $10^{4}$ placed on six SAMs
+polarities $\Phi=$ 0\%, 11\%, 17\%, 33\%, 50\% and 66\%. As previously
+mentioned, we used the GROMOS 53A6 force field together with the SPC/E
+water model. The SAMs (excluding $\Phi=$50\%) were originally configured
+for a 2007 study performed by Janecek et al. \cite{janecek:2007}.
+The SAM alkane chains, $\mathrm{C_{20}H_{44}}$ and $\mathrm{C_{20}H_{41}OH}$,
+are tilted by 30\textdegree{} (yielding a vertical height of approximately
+2.5 nm) and form hexagonal lattices with a lattice constant of 5{\AA }
+(see Figure \ref{fig:SAMstructure}). The different polarities $\Phi$
+result from the different proportions of the hydrophobic (CH\textsubscript{3})
+and hydrophilic (-OH) head groups, which are evenly distributed as
+in Figure \ref{fig:SAM-top-view}. The SAM atoms have fixed positions
+(zero degrees of freedom) in all the simulations and no internal interactions
+between them are allowed. The bond angles and bond lengths of the
+SAM molecules can be found in Table \ref{tab:Bond-lengths} in Appendix
+\ref{chap:Simulation-parameters}; Table \ref{tab:Mass-symbol-partial-charge}
+shows the masses, partial charges and the LJ-parameters of all the
+atoms (including water).
+
+The water droplets are initially shaped as cubical boxes. A short
+simulation of the water ``cubes'' alone (without SAM) is first performed
+consisting of an energy minimization followed by an 10ps-NVT and a
+5ns-NPT equilibration (the main simulation parameters are shown in
+Table \ref{tab:param-cubes} in Appendix \ref{chap:Analytical-transformation-of}).
+Each droplet is then placed (5{\AA }) above the center of every
+SAM surface (on the side where the functional head groups are located),
+and an energy minimization is performed followed by an NVT simulation
+of 20 ns (Table \ref{tab:params-simulation} in Appendix \ref{chap:Analytical-transformation-of})
+that is repeated until the contact angle is equilibrated (40 to 100
+ns).
+
+To determine the position of the GDS, shorter simulations were performed
+using with the same SAMs but planar water phases or ``water slabs''
+instead of water droplets (Figure \ref{fig:PtensorSnapshot}). This
+simulations were performed in an NP$_{z}$T ensemble controlling the
+pressure in the z-direction (In the following, the vertical direction
+perpendicular to the SAM will be the z-coordinate, which will be considered
+positive when pointing to the water phase). The simulation parameters
+can be found in Table \ref{tab:params-ptensor} in Appendix \ref{chap:Analytical-transformation-of}.

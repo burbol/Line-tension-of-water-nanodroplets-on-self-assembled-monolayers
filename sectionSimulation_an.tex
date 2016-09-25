@@ -1,0 +1,31 @@
+\section{Simulation analysis}
+
+Our analysis method consists of fitting a sphere cap to the droplet
+shape and determining the (microscopic) contact angle geometrically.
+
+\subsection{Complete wetting}
+
+In the systems with $\Phi=66\%$ and $\Phi=50\%$ contact angle is
+set as $\theta$ = 0 because complete wetting is observed. Thus, they
+will left out of the remaining calculations and graphs.
+
+\subsection{Solid-liquid interface position}
+
+The three different positions used as SL-interface $z_{SL}$ are determined
+from two-dimensional density profiles. These are produced by dividing
+the simulation box in 1000 slices (parallel to the SAM) and averaging
+the molecules in each one. Figure \ref{fig:SL-positions} shows the
+density profiles of two droplets with 9000 molecules placed on a hydrophobic
+and a hydrophilic SAM (with $\Phi=0\%$ and $\Phi=33\%$). The droplet
+profile is rounded and continuous. But the SAM profile is composed
+of discrete peaks because its atoms are fixed and unmoving. Close
+to the surface the droplets also show a layered structure with a high
+peak. Its position $z_{W}$ is used as SL-interface, so as the position
+of SAM density peak that is closest to the water: $z_{SAM}$. The
+third SL-interface position used is the GDS $z_{GDS}$. It is determined
+from the density profiles of the water slabs simulations applying
+equation~\ref{eq:GDS-final} (Figure \ref{fig:GDSptensor}). These
+systems have planar water phases, thus the density takes the bulk
+value over an extended region (as opposed to the droplet profiles)
+and the GDS definition can be applied (The three SL-interface positions
+are indicated in Figure \ref{fig:SL-positions}).

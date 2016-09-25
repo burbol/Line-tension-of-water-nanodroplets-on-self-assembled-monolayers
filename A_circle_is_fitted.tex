@@ -1,0 +1,12 @@
+A circle is fitted to the shape of the droplet using the calculated
+$r_{z}$ as in Figure \ref{fig:snapshot-circle-fit}. A density $\rho(z)$
+close to the bulk value $\rho^{b}$ is assumed in equation \ref{eq:sigmoid}.
+Thus, for low densities, as in the upper and lower regions of the
+droplet (or where $\rho(z)=0$), equation \ref{eq:sigmoid} yields
+$r_{z}$ that deviate from the curvature of a circle. Therefore, only
+the region with $\rho(z)\approx\rho^{b}$ is used in the circle fit
+(Note that Figure \ref{fig:Circle-fit} shows the physically impossible
+region where the radius $r_{z}<0$). Appendix \ref{chap:Apdx-Python-script}
+contains the script used to select the $r_{z}$ that show a circular
+curvature and to fit a circle to them. The script also computes the
+base radius and the contact angle.

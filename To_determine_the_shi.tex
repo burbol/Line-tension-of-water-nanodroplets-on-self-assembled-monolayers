@@ -1,0 +1,30 @@
+To determine the shift of the contact angle $\delta\theta(\Delta t_{j,N})$
+the line $\theta(t)=st+t_{j}$ is fitted to the values $\theta(t_{i})$
+with $t_{i}\in\left[t_{N}-t_{j}\right]$. The slope $s$ yields the
+shift of the contact angle $s\cdot\varDelta t_{j,N}\coloneqq\delta\theta(\varDelta t_{j,N})$.
+Figure \ref{fig:equil_c_angle} shows $\theta(t_{i})$ for an equilibrated
+and a ``not equilibrated'' system together with the magnitudes used
+for the determination of $t_{equil}$: the fitted line determines
+the contact angle shift and the standard deviation that defines the
+boundaries of the shift when $\theta$ is equilibrated. The graphs
+for all the simulations performed can be found in Appendix \ref{chap:Apdx-theta_t-equil}
+and the equivalent graphs for the base radii in Appendix \ref{chap:Apdx-rbase-equil}.
+
+The mean $\text{\textlangle}\theta\rangle_{j,N}$ and the standard
+deviation $\sigma(\theta(\Delta t_{j,N})=\sigma\left(\left\langle \theta\right\rangle _{j,N}\right)$
+are calculated using ``block averaging'' because the successive
+values of $\theta(t_{i})$ are correlated: the data are divided into
+$M$ ``blocks'' of size $b$ and the average of each block $l$
+is computed as $\bar{\theta}_{l}=\frac{1}{b}\sum_{k=1}^{b}\theta(t_{k})$.
+The mean value is then the average of all the blocks $\left\langle \theta\right\rangle =\frac{1}{M}\sum_{l=1}^{M}\bar{\theta_{l}}$
+and its standard deviation (or error bar) $\sigma(\left\langle \theta\right\rangle )=\frac{\sigma_{\bar{\theta}}}{\sqrt{n-1}}$,
+with $\sigma_{\bar{\theta}}=\left[\frac{1}{M}\sum_{l=1}^{M}\bar{\theta_{l}}^{2}-\left\langle \theta\right\rangle ^{2}\right]^{\nicefrac{1}{2}}$.
+
+\subsection{Macroscopic contact angle and line tension}
+
+The line tension $\tau(\Phi)$ and macroscopic contact angle $\theta_{\infty}(\Phi)$
+are determined by fitting the modified Young's equation \textendash{}
+equation \ref{eq: young-eq-mod} \textendash{} for every polarity
+$\Phi$ using $\gamma_{LG}=52.7\mathrm{pN}$ \cite{sedlmeier:2008}
+(see Figure \ref{fig:Fitted-modified-Young}). The resulting $\tau(\Phi)$
+and $\theta_{\infty}(\Phi)$ are shown and discussed in the next section.
