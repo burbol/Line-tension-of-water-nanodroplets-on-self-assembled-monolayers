@@ -17,7 +17,7 @@ When_Youngs_equation.tex
 figures/trigonometric_rel/default_figure.png
 If_we_describe_the.tex
 figures/GDS_equation2/default_figure.png
-sectionSimulations__.tex
+section_Simulations_subsection_Molecular_dynamics__.tex
 sectionPotential_Ene.tex
 figures/PeriodicBondCond/default_figure.png
 paragraphElectrostat.tex
