@@ -38,22 +38,22 @@ are re-calculated in small time steps using Newton's equation of motion
 for $N$ particles:
 
 \begin{equation}
-m_{i}\frac{\partial^{2}\bm{r}_{i}}{\partial t^{2}}=\bm{F}_{i},\enspace i=1,...,N\label{eq:Newton-Equation}
+m_{i}\frac{\partial^{2}{r}_{i}}{\partial t^{2}}={F}_{i},\enspace i=1,...,N\label{eq:Newton-Equation}
 \end{equation}
-where $t$ is the time, $\bm{F}_{i}$ the resulting force on particle
-$i$, $\bm{r}_{i}$ its position and $m_{i}$ its mass.
+where $t$ is the time, ${F}_{i}$ the resulting force on particle
+$i$, ${r}_{i}$ its position and $m_{i}$ its mass.
 
-The force fields in MD simulations are conservative, thus $\bm{F}_{i}$
+The force fields in MD simulations are conservative, thus ${F}_{i}$
 is determined from the potential energy $U=U(r_{1},...,r_{N})$ (with
 the help of an integration algorithm) by applying:
 
 \begin{equation}
-\bm{F}_{i}=-\frac{\partial U}{\partial\mathbf{r}_{i}},\enspace i=1,...,N,\label{eq:Force-PotEnergy-derivative}
+{F}_{i}=-\frac{\partial U}{\partial\mathbf{r}_{i}},\enspace i=1,...,N,\label{eq:Force-PotEnergy-derivative}
 \end{equation}
 which leads to $N$ equations to be solved simultaneously at every
-time step $\triangle t$. Thus, the position vectors $\bm{r}_{i}$
+time step $\triangle t$. Thus, the position vectors ${r}_{i}$
 are written as a unique vector $\mathbf{r}$ -- with $3N$ coordinates
-instead of $N$ separate vectors $\bm{r}_{i}$ with 3 coordinates
+instead of $N$ separate vectors ${r}_{i}$ with 3 coordinates
 -- to simplify the simultaneous solution in a single step.
 
 \paragraph{Leap-frog algorithm }
