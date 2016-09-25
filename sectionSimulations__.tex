@@ -1,0 +1,234 @@
+\section{Simulations}
+
+\subsection{Molecular dynamics}
+
+Computer simulations offer us insights to length scales of the order
+of $10^{-9}\mathrm{m}$ (the nanometer scale) and time scales of the
+nanosecond order. They fill the gap between theory and experiment
+because they can test the approximations of the theoretical models
+and predict events or conditions to be expected in the experiments.
+As M. Ripoll put it \cite{ripoll:2011}: `` {[}simulations{]} are
+sometimes referred as theoretical simulations by experimentalists
+or as computer experiments by theoreticians''.
+
+The techniques of MD have greatly evolved since their first implementation
+in the 1950s and are now regarded as the most powerful tool to model
+the motion of particles in equilibrated and non-equilibrated systems.
+
+Berni Alder is considered the ``inventor'' of Molecular Dynamics
+(he was awarded for that with the Boltzmann Medal in 2001). Together
+with his colleague Tom Wainwright, he simulated in the early 1950s
+systems with up to 500 particles on two different computers: the UNIVAC
+and the faster IBM-704 -- the UNIVAC was the first one with a storing
+memory and the IBM-704 the first mass-produced one \cite{alder:1957,alder:2009}
+
+Their work implied the simultaneous solution of up to 500 equations
+(one for each interacting particle, see next section), which can only
+be solved numerically with computers. At that time Monte Carlo Simulations
+(MC simulations) were already being performed (not only by Alder and
+his colleagues), but these offer insights only to already equilibrated
+systems. Thus, MD appeared out of necessity and has since become an
+indispensable tool.
+
+\subsubsection{Computation of particle trajectories }
+
+A MD simulation starts with an initial configuration where all particle
+positions and velocities are known. Then, all the positions (and velocities)
+are re-calculated in small time steps using Newton's equation of motion
+for $N$ particles:
+
+\begin{equation}
+m_{i}\frac{\partial^{2}{r}_{i}}{\partial t^{2}}={F}_{i},\enspace i=1,...,N\label{eq:Newton-Equation}
+\end{equation}
+where $t$ is the time, ${F}_{i}$ the resulting force on particle
+$i$, ${r}_{i}$ its position and $m_{i}$ its mass.
+
+The force fields in MD simulations are conservative, thus ${F}_{i}$
+is determined from the potential energy $U=U(r_{1},...,r_{N})$ (with
+the help of an integration algorithm) by applying:
+
+\begin{equation}
+{F}_{i}=-\frac{\partial U}{\partial\mathbf{r}_{i}},\enspace i=1,...,N,\label{eq:Force-PotEnergy-derivative}
+\end{equation}
+which leads to $N$ equations to be solved simultaneously at every
+time step $\triangle t$. Thus, the position vectors ${r}_{i}$
+are written as a unique vector $\mathbf{r}$ -- with $3N$ coordinates
+instead of $N$ separate vectors ${r}_{i}$ with 3 coordinates
+-- to simplify the simultaneous solution in a single step.
+
+\paragraph{Leap-frog algorithm }
+
+The leap-frog integration algorithm or ``integrator'' is used to
+solve differential equations numerically. It is applied in MD to solve
+Newton's equations of motion (\ref{eq:Newton-Equation}) and hence
+obtain the trajectories of the system particles. To determine the
+positions at each time step the following equations are applied recursively
+as in Figure \ref{fig:Leapfrogs}:
+
+\begin{equation}
+\mathbf{r}(t+\triangle t)=\mathbf{r}(t)+\triangle t\mathbf{v}(t+\frac{1}{2}\triangle t),\label{eq:leapfrog-r}
+\end{equation}
+
+\begin{equation}
+\mathbf{v}(t+\frac{1}{2}\triangle t)=\mathbf{\mathbf{v}}(t-\frac{1}{2}\triangle t)+\frac{\triangle t}{m}\mathbf{F}(t),\label{eq:leapfrog-v}
+\end{equation}
+where $\mathbf{r}$ and $\mathbf{v}$ denote the positions and velocities
+of the particles, $\mathbf{F}$ the resulting force acting on them,
+and $t$ the time. At the initial time $t_{0}$ the velocities from
+the previous step $t=t_{0}-\frac{1}{2}\triangle t$ are also needed.
+If they are not defined it is common to generate them as a Maxwell-Boltzmann
+distribution using random numbers.
+
+\begin{center}
+\begin{figure}[H]
+\centering{}%
+\begin{minipage}[t]{0.55\columnwidth}%
+\begin{center}
+\includegraphics[width=1\columnwidth]{subfiles/MDSimulations/Images/leapfrog}
+\par\end{center}
+\protect\caption[Leap-frog algorithm.]{\label{fig:Leapfrogs}Leap-frog algorithm. $t$indicates the time,
+$t_{i}$ the $i$th time step with $t_{i+1}=t_{i}+\Delta t$, $r_{i}$
+and $v_{i}$ the position and velocity at the step $i$. The steps
+or ``leaps'' in the positions are shifted by half a time step $\frac{1}{2}\triangle t$
+compared with the velocities. This behavior gives the name to the
+algorithm.}
+
+\par
+
+\subsubsection{Kinetic energy, temperature and pressure}
+
+In MD simulations the temperature $T$ is defined as in thermodynamics
+with the relation:
+
+\begin{equation}
+\frac{1}{2}N_{df}k_{B}T=E_{kin},\label{eq:Temp-KinEnergy-FreedomDeg}
+\end{equation}
+with $k_{B}$ the Boltzmann's constant, $E_{kin}$ the kinetic energy,
+and $N_{df}$ the (after removing the movement of the center of motion $N_{com}$and
+the constraints imposed $N_{c}$ , $N_{df}~=~3N-~N_{c}-~N_{com}$). On the other hand, the kinetic energy depends on the particle velocities. Its definition for $N$ particles with velocities $v_{i}$ is:
+
+\begin{equation}
+E_{kin}=\frac{1}{2}\sum_{i=0}^{N}m_{i}v_{i}^{2}.\label{eq:kinetic_Energy}
+\end{equation}
+Thus, the system temperature depends on the particle velocities and
+these have to be regulated in order to control the temperature.
+
+The pressure tensor $\mathbf{P}$ is defined for anisotropic systems
+using the virial and kinetic tensors $\mathbf{\Xi}$ and $\mathbf{E}_{kin}$\cite{parker:1954}
+with:
+
+\begin{equation}
+\mathbf{P}=\frac{2}{V}(\mathbf{E}_{kin}-\mathbf{\Xi})\label{eq:pressure-tensor}
+\end{equation}
+and
+
+\begin{equation}
+\mathbf{\Xi}=-\frac{1}{2}\sum_{i<j}\mathbf{r}_{ij}\otimes\mathbf{F}_{ij}.\label{eq:virial-theorem}
+\end{equation}
+
+Here $\mathbf{r}_{ij}$ and $\mathbf{F}_{ij}$ are the vectors (tensors)
+representing, respectively, the distance and the force between particles
+$i$ and $j$, and $\mathbf{r}_{ij}\otimes\mathbf{F}_{ij}$ their
+tensor product (also called direct product). For isotropic systems
+the scalar pressure $P$ is used: $P=\frac{1}{3}\textrm{trace}(\mathbf{P})$.
+Note that the trace of the kinetic tensor is identical to the scalar
+kinetic energy from equation \ref{eq:kinetic_Energy}.
+
+\subsection{Numerical algorithms}
+
+We refer the reader to the GROMACS manual \cite{d.-van-der-spoel:2010}
+for the exact implementation of the following algorithms, which we
+will only describe in general terms. The software package GROMACS
+allows the user to choose also other algorithms, but they should deliver
+the same or equivalent trajectories (with minor differences) for our
+system.
+
+\subsubsection{Energy minimization}
+
+Before starting the computation of the particle trajectories we usually
+perform what is called an energy minimization, which consists of finding
+a local minimum of the potential energy. This ensures that the system
+starts in a mechanically stable conformation without, for example,
+atom overlaps. However, if the physics of the system is sound the
+minimization should only produce minor changes or no change at all.
+
+The steepest (or gradient) descent algorithm is used for finding function
+minima. Since the potential energy function in a standard simulation
+depends on many interacting particles or variables, the global minimum
+will be impossible to find. But for the practical purpose of the energy
+minimization a local minimum (a saddle point where all first derivatives
+are zero and the second derivatives are positive) already suffices.
+
+Taking into account that the force is the negative derivative of the
+potential energy (equation \ref{eq:Force-PotEnergy-derivative}),
+the gradient descent algorithm takes the form:
+
+\begin{equation}
+\mathbf{r}(=\mathbf{r}_{i}+\frac{\mathbf{F}_{i}}{\max(\left|\mathbf{F}_{i}\right|)}h_{i},\label{eq:steepest}
+\end{equation}
+where $\mathbf{F}_{i}$ are the forces acting on the particle positions
+$\mathbf{r}_{i}$ at the time step $i$, $\max(\left|\mathbf{F_{i}}\right|)$
+the largest force component in absolute value, and $h_{i}$ a constant
+factor that varies after every step depending on the proximity of
+the minimum: it is bigger if the potential energy is approaching the
+minimum and smaller in the opposite case. At every step $i$ the forces
+$\mathbf{F_{i}}$ are calculated first and then used to update the
+positions$\mathbf{r}_{n}$ with equation \ref{eq:steepest}. This
+process is repeated until the desired precision is met.
+
+\subsubsection{Temperature coupling}
+
+MD defines the simulations inside NVE ensembles (with constant particle
+number N, volume V, and energy E). However, it is common to calculate
+the particles trajectories inside NVT ensembles (constant number N,
+volume V, and temperature T) as in our droplet simulations. To maintain
+the temperature constant, we used the Berendsen algorithm or ``thermostat''
+\cite{berendsen:1984}, which reproduces a weak-coupling to a heat
+bath with temperature $T_{0}$ by correcting every temperature deviation
+from $T_{0}$ according to:
+
+\begin{equation}
+\frac{dT}{dt}=\frac{T_{0}-T}{\tau_{temp}}.\label{eq:Berendsen}
+\end{equation}
+In this manner, the temperature deviation will decay exponentially
+with the time constant $\tau_{temp}$. The particle velocities will
+be also rescaled, because they are directly related to the kinetic
+energy and the temperature through equations \ref{eq:Temp-KinEnergy-FreedomDeg}
+and \ref{eq:kinetic_Energy}.
+
+\subsubsection{Pressure coupling}
+
+MD simulations can also be performed in an NPT ensemble (constant
+number N, pressure P, and temperature T) where the system is coupled
+to a \textquotedblleft pressure bath\textquotedblright . Since the
+pressure is directly related to the particle positions through equation
+\ref{eq:virial-theorem}, the algorithms for pressure coupling will
+also scale the coordinates and the box vectors. The scaling can be
+applied uniformly (isotropic pressure coupling), independently in
+the x-y and z dimensions (semi-isotropic pressure coupling), or independently
+in all directions (anisotropic pressure coupling).
+
+In our simulations we used both the Berendsen and the Parrinello-Rahman
+algorithms or ``barostats'': the former to equilibrate the water
+droplets alone before they were positioned on top of the solid surfaces,
+and the latter to simulate planar water phases (which were used to
+determine the GDS) using a semi-isotropic pressure coupling.
+
+The Berendsen barostat \cite{berendsen:1984} maintains the pressure
+at a constant reference value $P_{0}$ according to:
+
+\begin{equation}
+\frac{dP}{dt}=\frac{P_{0}-P}{\tau_{p}},
+\end{equation}
+where $\tau_{p}$ is a time constant. While the Parrinello-Rahman
+\cite{nose:1983,parrinello:1981} algorithm applies the following
+matrix equation of motion for the box vectors represented by the matrix
+$\mathbf{b}$:
+
+\begin{equation}
+\frac{d\mathbf{b}}{dt^{2}}=V_{box}\mathbf{C^{-1}b'^{-1}}(\mathbf{P}-\mathbf{P_{0})},
+\end{equation}
+with $V_{box}$ the volume of the simulation box, and $\mathbf{C}$
+a matrix parameter determined by the strength of the coupling. $\mathbf{P}$
+and $\mathbf{P_{0}}$ are the current and reference pressure matrix,
+respectively.
