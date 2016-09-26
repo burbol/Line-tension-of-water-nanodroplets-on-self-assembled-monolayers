@@ -16,7 +16,6 @@ figures/C_Angles_Hydrophilic/default_figure.png
 When_Youngs_equation.tex
 figures/trigonometric_rel/default_figure.png
 If_we_describe_the.tex
-figures/GDS_equation2/default_figure.png
 figures/Lennard-Jones/default_figure.png
 figures/ShiftedPotentialAndForce/default_figure.png
 figures/single_water_molec/default_figure.png
