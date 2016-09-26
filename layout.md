@@ -22,7 +22,6 @@ figures/PeriodicBondCond/default_figure.png
 figures/Lennard-Jones/default_figure.png
 paragraphShifted_pot.tex
 figures/ShiftedPotentialAndForce/default_figure.png
-paragraphEwald_sumat.tex
 figures/single_water_molec/default_figure.png
 subsectionSelf_assem.tex
 figures/SAMChains/default_figure.png
