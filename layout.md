@@ -1,5 +1,4 @@
 abstract.tex
-tableofcontents.tex
 sectionIntroduction_.tex
 figures/insectolago/default_figure.png
 The_contact_angle_ha.tex
