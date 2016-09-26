@@ -19,7 +19,6 @@ If_we_describe_the.tex
 figures/GDS_equation2/default_figure.png
 sectionPotential_Ene.tex
 figures/PeriodicBondCond/default_figure.png
-paragraphElectrostat.tex
 figures/Lennard-Jones/default_figure.png
 paragraphShifted_pot.tex
 figures/ShiftedPotentialAndForce/default_figure.png
