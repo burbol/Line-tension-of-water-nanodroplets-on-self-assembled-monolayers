@@ -19,7 +19,6 @@ If_we_describe_the.tex
 figures/GDS_equation2/default_figure.png
 figures/PeriodicBondCond/default_figure.png
 figures/Lennard-Jones/default_figure.png
-paragraphShifted_pot.tex
 figures/ShiftedPotentialAndForce/default_figure.png
 figures/single_water_molec/default_figure.png
 subsectionSelf_assem.tex
